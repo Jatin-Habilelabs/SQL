@@ -1,0 +1,84 @@
+﻿            1. Create a table MY_ EMPLOYEE with columns id, last_name,first_name,user_id,salary.
+Ans:-
+      				 CREATE TABLE MY_EMPLOYEE ( columns_id int,
+						  first_name VARCHAR(20),
+						  last_name VARCHAR(20),
+						  user_id int ,
+						  salary int)
+	
+            2. Add the rows of data to the MY_EMPLOYEE table from the following sample data. Concatenate the first letter of the first name and the first seven characters of the last name to produce the userid.  
+           
+
+Ans:-
+
+INSERT INTO MY_EMPLOYEE VALUES
+(1,'Ralph','Patel',lower(CONCAT(SUBSTRING('Ralph',1,1),SUBSTRING('Patel',1,7))),895),
+(2,'Betty','Dancs',lower(CONCAT(SUBSTRING('Betty',1,1),SUBSTRING('Danes',1,7))),860),
+(3,'Ben','Biri',lower(CONCAT(SUBSTRING('Ben',1,1),SUBSTRING('Biri',1,7))),1100),
+(4,'Chad','Newman',lower(CONCAT(SUBSTRING('Chad',1,1),SUBSTRING('Newman',1,7))),750),
+(5,'Audrey','Ropeburn',lower(CONCAT(SUBSTRING('Audrey',1,1),SUBSTRING('Ropeburn',1,7))),1550)
+
+            3. Confirm your addition to the table.
+               
+Ans:-    SELECT  * FROM  MY_EMPLOYEE
+
+            4. Make the data additions permanent.	
+Ans:-
+			COMMIT ;
+
+
+            5. Change the last name of employee 103 to Drexler.
+               
+Ans:-
+ 		UPDATE MY_EMPLOYEE
+		SET last_name='Drexler'
+		WHERE columns_id=3
+
+            6. Change the salary to 1000 for all employees with a salary less than 900.
+As:-
+
+		UPDATE MY_EMPLOYEE
+		SET salary=1000
+		WHERE salary<900
+            7. Verify your changes to the table.
+Ans:-
+                    SELECT last_name,salary FROM MY_EMPLOYEE
+
+
+            8. Delete Betty Dancs from the MY_EMPLOYEE table.
+Ans:-		
+		DELETE FROM MY_EMPLOYEE
+		WHERE first_name='Betty';
+
+             
+            9. Confirm your changes to the table.
+Ans:-
+  		SELECT  *  FROM  MY_EMPLOYEE
+            10. Commit all pending changes.
+Ans:-
+		COMMIT ;
+            11. Modify the MY_EMPLOYEES table to allow for longer employee last names. Confirm your modification.
+Ans:-
+
+			
+		ALTER TABLE MY_EMPLOYEE
+		ALTER COLUMN last_name TYPE VARCHAR(255)
+
+		SELECT  *  FROM  MY_EMPLOYEE
+
+
+            12. Create the MY_EMPLOYEES2 table based on the structure of the EMPLOYEES table. Include only the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, and DEPARTMENT_ID columns. Name the columns in your new table ID, FIRST_NAME, LAST_NAME, SALARY , and DEPT_ID, respectively.
+
+
+Ans:-
+
+
+
+			
+CREATE TABLE my_employee2 (id int, first_name VARCHAR(20),last_name VARCHAR(25),
+salary int,dept_id int)	
+
+INSERT INTO  my_employee2 
+SELECT employee_id,first_name,last_name,salary,department_id 	
+FROM employees
+					

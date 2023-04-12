@@ -1,0 +1,56 @@
+
+Ques-1)The following SELECT statement executes successfully (True / False):
+          
+        SELECT last_name, job_id, salary AS SalFROM   employees;
+
+ Ans:- True 
+
+Ques-2). The following SELECT statement executes successfully:
+
+         SELECT *FROM   job_grades;
+
+ Ans:-  False , because job_grades is not found in table .
+ 
+Ques-3) There are four coding errors in this statement. Can you identify them?
+             SELECT    employee_id, last_namesal x 12ANNUAL SALARYFROM      employees;
+
+ Ans :-  correct syntex is :- 
+
+               SELECT employee_id, last_name , salary*12 "ANNUAL SALARY" 
+               FROM employees;
+               
+         1) First error is comma missing between last_name and sal.
+         2) Second error is spelling mistake in sal i.e salary beacause sal nam not present in table.
+         3) Third error is space missing between 12 and ANNUAL SALARY  and second space need between SALARY and FROM
+         4) Another error is wrong operation "x" correct opertion is "* .
+         5) Another error is if we need name in captial letters than alias name should be in "ANNUAL SALARY"
+             
+  
+ Ques-4)  Show the structure of the DEPARTMENTS table. Select all data from the DEPARTMENTS table.
+
+  Ans:-  We not show directly stucture of table in postgesql,so firstly right click on that table and then goes into properties part and after that click on columns
+       button and another option is show all details of table using this :-
+         
+          SELECT * FROM departments;    
+
+Ques-5)  Show the structure of the EMPLOYEES table. Create a query to display the last name, job code, hire date, and employee number for each employee,with employee number appearing first.Provide an alias STARTDATE for the HIRE_DATE column.  
+
+Ans:-   SELECT employee_id ,last_name, job_id, hire_date "STARTDATE"
+        FROM employees ;
+
+Ques-6) Create a query to display unique job codes from the EMPLOYEES table.
+
+Ans:-   SELECT DISTINCT job_id  FROM employees ORDER BY job_id asc;
+
+Ques-7)  Display the last name concatenated with the job ID, separated by a comma and space, and name the column Employee and Title. 
+
+Ans:-    SELECT last_name||', '||job_id "EMPLOYEE and TITLE" FROM employees ;
+
+Ques 8) Create a query to display all the data from the EMPLOYEE table. Separate each column by acomma. Name the column THE_OUTPUT.
+
+Ans:- SELECT employee_id||' , '||first_name||' , '||last_name||' , '||email||' , '||
+    phone_number||' , '|| hire_date||' , '|| job_id ||' , '|| salary ||' , '||
+    manager_id||' , '|| department_id "THE_OUTPUT"
+    FROM employees
+
+

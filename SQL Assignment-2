@@ -1,0 +1,90 @@
+
+
+Ques 1) Create a query to display the data of employees joined after 2009-02-28.
+
+Ans:-  SELECT *  
+       FROM employees  
+       WHERE hire_date>'2009-02-28';
+
+Ques 2) Create a query to display the last name and salary of employees earning more than $12,000.
+
+Ans:-  SELECT last_name,salary 
+       FROM employees 
+       WHERE salary>'12000';
+
+Ques 3) Create a query to display the employee last name and department number for employee number 176.
+
+Ans :- SELECT last_name, department_id  
+       FROM employees 
+       WHERE employee_id='176';
+
+Ques 4) Display the last name and department number of all employees in departments 20 and 50 in alphabetical order by name.
+
+Ans :-  SELECT last_name,department_id FROM employees
+        WHERE department_id BETWEEN '20'AND '5'	
+        order by last_name;
+
+
+Ques 5) Display the employee job title and hire date of employees hired between February 20, 1998, and May 1, 1998. Order the query in ascending order by start date.
+
+Ans:- SELECT jobs.job_title,employees.hire_date FROM jobs 
+      INNER JOIN employees ON jobs.job_id=employees.job_id 
+      WHERE employees.hire_date BETWEEN '1998-02-20' AND '1998-05-01'
+
+Ques 6)  Display the job title and and hire date of every employee who was hired in 1994
+
+Ans:-   SELECT jobs.job_title,employees.hire_date FROM jobs 
+        INNER JOIN employees ON jobs.job_id=employees.job_id 
+        where employees.hire_date between '1994-01-01' AND '1994-12-31'
+
+Ques 7)  Display the last name and job title of all employees who do not have a manager.
+
+Ans:-   SELECT jobs.job_title,employees.last_name FROM jobs 
+        INNER JOIN employees ON jobs.job_id=employees.job_id 
+         where employees.manager_id IS NULL
+
+Ques 8) Display the last name, salary for all employees . Sortdata in descending order of salary.
+
+Ans :-  SELECT last_name,salary 
+        FROM employees 
+        ORDER BY salary DESC;
+
+Ques 9) Display the last names of all employees where the third letter of the name is an a.
+
+Ans:-   SELECT last_name
+        FROM employees 
+        WHERE last_name LIKE '__a%'
+
+Ques 10)  Display the last name of all employees who have an a and an e in their last name.
+
+Ans:-   SELECT last_name
+        FROM employees 
+        WHERE last_name LIKE '%a%' OR
+		last_name LIKE '%e%';
+
+Ques 11) Display the last name, job, and salary for all employees whose salary is not equal to $2,500, $3,500, or $7,000
+
+Ans:-   SELECT last_name ,job_id, salary 
+        FROM employees 
+        WHERE NOT salary IN(2500,2500,7000) 
+        ORDER BY salary 
+
+
+
+
+Ques 12) Write a query to display the current date. Label the column Date.
+
+Ans:-  SELECT CURRENT_DATE "Date";
+
+Ques 13) For each employee, display the employee number, last_name, salary, and salary increased by 15% and expressed as a whole number. Label the column New Salary.
+
+Ans :-  SELECT employee_id,last_name,salary,salary+(salary*15/100) "New Salary"
+        FROM  employees;
+
+Ques 14)  Write a query that displays the employee’s last names with the first letter capitalized and all other letters lowercase and the length of the name for all employees whose name starts with J, A, or M. Give each column an appropriate label. Sort the results by the employees’ last names.
+
+Ans:-       SELECT INITCAP(last_name) "Last Name" , LENGTH(last_name) "Length"
+            FROM  employees
+            WHERE last_name LIKE 'J%' OR  last_name LIKE 'A%' OR  last_name LIKE 'M%'       
+            ORDER BY last_name
+

@@ -1,0 +1,30 @@
+database :- perform crud operation and store data is called database.
+
+projection - goes vertical 
+selection - goes horizontally
+
+alias- renamws a column
+dsc=describe and desc is descending
+IN used for list
+LIKE used for pattern matching
+ 
+
+rules of precendence :-
+
+
+arithmetic operators
+concatenation operator
+comparison conditions
+IS [NOT] NULL,LIKE,[NOT] IN
+[NOT] BETWEEN
+NOT logical condtion
+AND logical condtion
+OR  logical condition
+
+
+Single row functions :- return one row per result
+multiple row function:- return one result per set of rows
+
+INSTR tell the postion of pattern
+
+COALESCE  
